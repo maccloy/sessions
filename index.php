@@ -6,7 +6,7 @@ $sessionVars = "";
 foreach ($_SESSION as $key => $value) {
     $sessionVars .= "$key = $value";
     
-    $sessionVars .= "<form method='post' action='modVariable.php' class='noWrap'>\n";
+    $sessionVars .= "<form method='post' action='showVariable.php' class='noWrap'>\n";
     $sessionVars .= "<input type='hidden' value='$key' name='key'>\n";
     $sessionVars .= "<input type='submit' class='button btn btn-warning' value='Change'>\n";
     $sessionVars .= "</form>\n";
@@ -27,7 +27,7 @@ if (strlen($sessionVars) == 0) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Basic Email</title>
+<title>Basic Sessions</title>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <style>
@@ -60,7 +60,7 @@ if (strlen($sessionVars) == 0) {
 <br><br>
     <h2>Session ID</h2>
     <?= $sessionId ?> <br>
-    change session id<br><br>
+    <a href="showSession.php">change session id</a><br><br>
     <h2>Session variables</h2>
      <?= $sessionVars ?>
      <br>
