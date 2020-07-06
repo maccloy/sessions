@@ -2,7 +2,7 @@
 session_start();
 
 if (session_unset()) {
-    echo "Session wiped";
+    header("Location: index.php");
 } else {
     echo "Error";
 }
