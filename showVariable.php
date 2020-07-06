@@ -56,10 +56,23 @@ $value = $_SESSION[$key];
 
         <div class="form-group centered" style="">
             <input type="submit" class="button btn btn-primary" value="Modify">
-            <input type="reset" class="button btn btn-danger">
+            <input type="reset" class="button btn btn-warning">
         </div>
+        </form>
 
-    </form>
+
+
+        <form method='post' action='deleteVariable.php' class='noWrap'>
+        <input type='hidden' value='<?= $key ?>' name='key'>
+        <div class="form-group centered" style="">
+            <input type="submit" class="button btn btn-danger" value="Delete">
+        </div>
+        </form>
+
+
+
+
+
     </div>
 </body>
 </html>

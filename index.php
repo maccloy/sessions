@@ -60,7 +60,6 @@ if (strlen($sessionVars) == 0) {
 <br><br>
     <h2>Session ID</h2>
     <?= $sessionId ?> <br>
-    <a href="showSession.php">change session id</a><br><br>
     <h2>Session variables</h2>
      <?= $sessionVars ?>
      <br>
