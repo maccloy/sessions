@@ -8,12 +8,12 @@ foreach ($_SESSION as $key => $value) {
     
     $sessionVars .= "<form method='post' action='modVariable.php' class='noWrap'>\n";
     $sessionVars .= "<input type='hidden' value='$key' name='key'>\n";
-    $sessionVars .= "<input type='submit' class='button btn btn-primary' value='Change'>\n";
+    $sessionVars .= "<input type='submit' class='button btn btn-warning' value='Change'>\n";
     $sessionVars .= "</form>\n";
     
     $sessionVars .= "<form method='post' action='deleteVariable.php' class='noWrap'>\n";
     $sessionVars .= "<input type='hidden' value='$key' name='key'>\n";
-    $sessionVars .= "<input type='submit' class='button btn btn-primary' value='Delete'>\n";
+    $sessionVars .= "<input type='submit' class='button btn btn-danger' value='Delete'>\n";
     $sessionVars .= "</form>\n";
     $sessionVars .= "\n";
     $sessionVars .= "<br>";
@@ -35,35 +35,60 @@ if (strlen($sessionVars) == 0) {
 .noWrap {
     display: inline;
 }
+
+.form-control {
+    width: 300px;
+}
+
+.button {
+    width: 100px;
+}
+
+.btn-session {
+    width: 200px;
+}
+
+.centered {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center;
+}
 </style>
 </head>
 <body class="bg-light">
-    Session ID <?= $sessionId ?> change session id<br><br>
-    Session variables<br>
+<div class="centered" style="">
+<br><br>
+    <h2>Session ID</h2>
+    <?= $sessionId ?> <br>
+    change session id<br><br>
+    <h2>Session variables</h2>
      <?= $sessionVars ?>
      <br>
-    Add a new session variable<br>
+    <h2>Add a new session variable</h2>
     <form method="post" action="addVariable.php">
 
         <div class="form-group">
-            <label for="name">Variable Name</label>
-            <input type="text" id="name" name="name" class="form-control">
+            <label for="name" class="centered">Variable Name</label>
+            <input type="text" id="name" name="name" class="form-control centered">
         </div>
 
-        <div class="form-group">
-            <label for="data">Variable Data</label>
-            <input type="text" id="data" name="data" class="form-control">
+        <div class="form-group ">
+            <label for="data" class="centered">Variable Data</label>
+            <input type="text" id="data" name="data" class="form-control centered">
         </div>
 
-
-        <div class="form-group">
+        <div class="form-group centered" style="">
             <input type="submit" class="button btn btn-primary" value="Add">
             <input type="reset" class="button btn btn-danger">
         </div>
 
     </form>
     <br>
-    <a href="resetSession.php">Reset session</a>
+    <div class="form-group centered" style="text-align: center;">
 
+    <a href="resetSession.php"><button class="button btn btn-danger btn-session">Reset session</button></a>
+    <small id="resetSessionlHelp" class="form-text text-muted">Warning: <br>this will delete all session variables.</small>
+    </div>
+</div>
 </body>
 </html>
